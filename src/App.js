@@ -10,7 +10,7 @@ import Payment from "./components/Payment";
 import Orders from "./components/Orders";
 
 import { useStateValue } from "./components/StateProvider";
-import { auth } from './firebase'
+import { auth } from "./firebase";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -44,7 +44,6 @@ function App() {
     });
   }, []);
 
-
   return (
     <div className="app">
       <Header />
@@ -53,10 +52,22 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/payment" element={<Payment />} />
+        {/* <Route path="/payment" element={<Payment />} /> */}
+        <Route
+          path="/payment"
+          element={
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          }
+        />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+{/* <Elements stripe={promise}>
+  <Payment />
+</Elements>; */}
