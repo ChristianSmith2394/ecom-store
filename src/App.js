@@ -52,7 +52,6 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/orders" element={<Orders />} />
-        {/* <Route path="/payment" element={<Payment />} /> */}
         <Route
           path="/payment"
           element={
@@ -67,7 +66,3 @@ function App() {
 }
 
 export default App;
-
-{/* <Elements stripe={promise}>
-  <Payment />
-</Elements>; */}
